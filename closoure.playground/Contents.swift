@@ -2,7 +2,7 @@ import UIKit
 
 let numbers = [1,2,3,4,5,6,7,8,9,10]
 let filteredList = filterWithPredicateClosure(closure:{(num) -> Bool in
-    num > 5
+    return num > 5
 },numbers: numbers)
 
 
