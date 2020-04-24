@@ -49,3 +49,54 @@ default:
     print("Not a safe place for humans")
 }
 
+//Iterating over Enumeration Case
+enum Beverage: CaseIterable {
+    case coffee, tea, juice
+    case apple, banana
+}
+let numberOfChoices = Beverage.allCases.count
+print("\(numberOfChoices) beverages available")
+// Prints "3 beverages available"
+
+for beverage in Beverage.allCases{
+    print(beverage)
+}
+
+//proptocal CaseIterable
+enum CompassDirection: CaseIterable{
+    case north, east, west
+}
+
+print("There are \(CompassDirection.allCases.count) directions")
+
+let caseList = CompassDirection.allCases.map({"\($0)"}).joined(separator: ", ")
+print(caseList)
+
+//Raw Values:enumeration cases can come prepopulated with default values (called raw values), which are all of the same type.
+enum ASSCIIControlCharacter: Character{
+    case tab = "\t"
+    case lineFeed = "\n"
+    case carriageReturn = "\r"
+}
+
+//Implicitly Assigned Raw Values
+enum PlanetRawValue: Int {
+    case mercury = 1, venus, earth, mars, jupiter, saturn, uranus, neptune //default start from 0
+}
+print(PlanetRawValue.earth.rawValue)
+
+enum CompassPointRawValue: String {
+    case north, south, east, west
+}
+
+let  earthOrder =  PlanetRawValue.earth.rawValue
+print(earthOrder)
+
+let sunsetDirection = CompassPointRawValue.west.rawValue
+print(sunsetDirection)
+
+//Recursive Enumerations
+
+
+
+
